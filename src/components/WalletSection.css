@@ -1,0 +1,333 @@
+.wallet-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1; /* below navbar (z-index:1000) and clouds (z-index:5) */
+  /* Background inherits the sky-blue from the body / app-container */
+}
+
+.lcs-text-area h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1C1C1E;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.lcs-text-area p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.cards-stack-container {
+  position: absolute;
+  /* Adjust bottom offset for the taller cards */
+  bottom: -150px;
+  width: 100%;
+  max-width: 1100px; /* Wider to accommodate larger cards */
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.stacked-dashboard-card {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Increased base size as requested */
+  max-width: 1000px;   
+  height: 500px;      
+  padding: 2.5rem 5rem; /* Slightly reduced vertical padding to give frames more room */
+  border-radius: 48px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12), inset 0 1.5px 0 rgba(255,255,255,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  transition: opacity 0.25s ease;
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+
+.sdc-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sdc-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+
+/* Activities Frames */
+.activities-frames-container {
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex: 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1; /* Normally take equal width */
+  min-width: 0; 
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.activity-item.is-hidden {
+  flex: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  transform: translateX(-20px);
+  pointer-events: none;
+}
+
+.activity-item.is-expanded {
+  flex: 0 0 450px; /* Increased from 320px for a more cinematic frame size */
+  align-items: flex-start;
+  text-align: left;
+}
+
+.activity-frame-box {
+  width: 100%;
+  aspect-ratio: 1 / 1.1; /* Made taller (more vertical) than the previous 4/3 */
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden; /* Ensure image doesn't bleed out */
+  background: rgba(0,0,0,0.05); /* Subtle background for frames without images yet */
+}
+
+.mapping-frame {
+  opacity: 1 !important; /* Image should be fully visible */
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapping-frame img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mapping-frame img.crop-img {
+  object-fit: cover;
+  transform: scale(1.4); /* Zoomed in/cropped when in the small stack */
+}
+
+.mapping-frame img.full-img {
+  object-fit: cover; /* Fill the frame edge-to-edge */
+  transform: scale(1); 
+}
+
+.activity-item.is-expanded .activity-frame-box {
+  /* Expand to fill the full vertical height available in the card */
+  flex: 1;
+  width: 100%;
+  aspect-ratio: auto;
+  margin-bottom: 0; /* Align perfectly with the bottom */
+}
+
+.activity-item h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem 0;
+}
+
+.activity-item p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.activity-more-link {
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.activity-text-content {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  max-height: 200px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.activities-frames-container.has-expanded .activity-text-content {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+.activity-more-link:hover {
+  opacity: 1;
+}
+
+/* Details Pane (Right Side) */
+.activity-details-pane {
+  flex: 0;
+  opacity: 0;
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-details-pane.is-active {
+  flex: 1;
+  opacity: 1;
+  padding-left: 2rem;
+}
+
+.adp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.adp-header h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.adp-back-btn {
+  background: rgba(0,0,0,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: inherit;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 110;
+  pointer-events: auto;
+}
+
+.adp-back-btn:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+.adp-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  overflow: hidden;
+  padding-right: 1rem;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(8deg);
+  }
+}
+
+/* Fluid Rainbow Mesh Background */
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mesh-blob-1, .mesh-blob-2, .mesh-blob-3, .mesh-blob-4 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6; /* Slightly transparent so it blends with the sky blue background */
+}
+
+.mesh-blob-1 {
+  background: #ff0080; /* Pink/Red */
+  width: 60vw; height: 60vh;
+  top: -10vh; left: -10vw;
+  animation: float-blob1 25s ease-in-out infinite alternate;
+}
+.mesh-blob-2 {
+  background: #00c8ff; /* Cyan */
+  width: 50vw; height: 50vh;
+  bottom: -10vh; right: -10vw;
+  animation: float-blob2 20s ease-in-out infinite alternate;
+}
+.mesh-blob-3 {
+  background: #ffc800; /* Yellow */
+  width: 55vw; height: 55vh;
+  bottom: 20vh; left: 10vw;
+  animation: float-blob3 22s ease-in-out infinite alternate;
+}
+.mesh-blob-4 {
+  background: #00ff64; /* Green */
+  width: 45vw; height: 45vh;
+  top: 10vh; right: 20vw;
+  animation: float-blob4 28s ease-in-out infinite alternate;
+}
+
+@keyframes float-blob1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30vw, 20vh) scale(1.2); }
+}
+@keyframes float-blob2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-20vw, -30vh) scale(1.3); }
+}
+@keyframes float-blob3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40vw, -10vh) scale(0.9); }
+}
+@keyframes float-blob4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-30vw, 30vh) scale(1.4); }
+}

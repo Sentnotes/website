@@ -1,0 +1,237 @@
+.wallet-scroll-container {
+  width: 100%;
+  position: relative;
+}
+
+.wallet-sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wallet-split-layout {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 5%;
+  gap: 4rem;
+}
+
+.physical-wallet-container {
+  flex: 1;
+  max-width: 450px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 40px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), inset 0 2px 20px rgba(255, 255, 255, 0.5);
+  position: relative;
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-pocket-line {
+  position: absolute;
+  top: 60px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.wallet-cards-stack {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  perspective: 1000px;
+  z-index: 5;
+}
+
+.wallet-text-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.wallet-section-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -1.5px;
+}
+
+.wallet-section-desc {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+
+.stacked-wallet-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  border-radius: 24px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  overflow: hidden;
+  /* Will-change helps with smooth scrolling performance */
+  will-change: transform;
+}
+
+.stacked-card-peek {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.stacked-card-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+}
+
+.stacked-card-body {
+  padding: 16px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.bank-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bank-card-number {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.bank-card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.bank-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bank-card-member {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.stacked-section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.member-date {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stacked-card-main-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.stacked-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.stacked-unit {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Bank Card Chip Styles */
+.bank-card-chip {
+  width: 42px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chip-row {
+  flex: 1;
+  display: flex;
+  gap: 1px;
+}
+
+.chip-cell {
+  flex: 1;
+}
+
+.border-right {
+  border-right: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.border-bottom {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Make it stack vertically on small screens */
+@media (max-width: 768px) {
+  .wallet-split-layout {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+    gap: 2rem;
+  }
+  
+  .wallet-cards-stack {
+    width: 100%;
+  }
+}
