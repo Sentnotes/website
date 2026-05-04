@@ -7,13 +7,10 @@ const AskAlisonSection = () => {
     <section id="home" className="ask-alison-section">
       <AnimatedClouds />
 
-      {/* SentNotes Header */}
-      <div style={{ position: 'relative', textAlign: 'center', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginBottom: '60px', marginTop: '40px' }}>
-        <h1 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 500 }}>SentNotes</h1>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginTop: '0.8rem' }}>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', margin: 0 }}>Your Daily Health Wallet</p>
-          <button style={{ pointerEvents: 'auto', padding: '10px 24px', backgroundColor: 'white', color: '#161616', borderRadius: '30px', border: 'none', fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Download app</button>
-        </div>
+      {/* Hero Tagline */}
+      <div style={{ position: 'relative', textAlign: 'center', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', width: '100%', marginBottom: '60px', marginTop: '40px', padding: '0 20px', flexWrap: 'wrap' }}>
+        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'clamp(1rem, 4vw, 1.2rem)', margin: 0 }}>Your Daily Health Wallet</p>
+        <button style={{ pointerEvents: 'auto', padding: '10px 24px', backgroundColor: 'white', color: '#161616', borderRadius: '30px', border: 'none', fontSize: 'clamp(0.85rem, 3vw, 0.95rem)', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Download app</button>
       </div>
 
       <div className="ask-alison-header">

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 120px 20px;
-  background-color: var(--bg-default);
+  background: #4AA6FF;
   position: relative;
   overflow: hidden;
 }
@@ -16,10 +16,11 @@
 }
 
 .ask-alison-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 500;
   color: var(--text-primary);
   margin: 0;
+  padding: 0 10px;
   letter-spacing: -1px;
 }
 

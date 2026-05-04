@@ -1,0 +1,285 @@
+.fragmented-section {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 0;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.fragmented-header {
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 40px auto;
+  padding: 0 5%;
+}
+
+.fragmented-main-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.fragmented-cards-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 40px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  
+  /* Base padding for smaller screens */
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.fragmented-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1260px) {
+  .fragmented-header {
+    padding: 0;
+  }
+  .fragmented-cards-container {
+    padding-left: calc((100vw - 1200px) / 2);
+    padding-right: calc((100vw - 1200px) / 2);
+  }
+}
+
+.fragmented-card {
+  border-radius: 32px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 440px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  flex: 0 0 45%;
+  min-width: 420px;
+  scroll-snap-align: start;
+}
+
+.light-card {
+  background-color: #ffffff;
+}
+
+.dark-card {
+  background-color: #000000 !important;
+  color: #ffffff;
+}
+
+/* Special Wide Card for the Image */
+.card-wide {
+  flex: 0 0 auto;
+  width: 85vw;
+  max-width: 1050px; /* Prevent it from getting overly wide and cavernous */
+  padding: 56px 32px 56px 64px;
+  background-color: #F5F6F8;
+}
+
+.card-wide-content {
+  display: flex;
+  gap: 24px; /* Reduced gap to bring text and image closer */
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-text-side {
+  flex: 0 1 380px; /* Cap text width so it doesn't stretch and create gaps */
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-image-side {
+  flex: 1 0 550px; /* Guarantee a large space for the image to be readable */
+  max-width: 700px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: -32px; /* Pull tight to right edge */
+}
+
+.scattered-card-image {
+  width: 105%; /* Slight over-extend to eat up any baked-in transparent whitespace in the PNG */
+  height: auto;
+  display: block;
+}
+
+
+
+/* Typography Restored to Brand Standards */
+.card-headline {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: #111;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0 0 20px 0;
+}
+
+.card-subtext {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.card-paragraph {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.punchline-wrapper {
+  position: relative;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.card-punchline {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.purple-punchline {
+  color: #5A45FF;
+}
+
+.punchline-underline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .fragmented-card {
+    flex: 0 0 85%;
+    min-width: 300px;
+    padding: 32px;
+  }
+  
+  .card-wide {
+    flex: 0 0 85%;
+    min-width: 300px;
+    padding: 40px 32px;
+  }
+
+  .card-wide-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .card-image-side {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .punchline-wrapper {
+    align-self: center;
+  }
+}
+
+/* Stacked Wide Card Overrides (For Card 2) */
+.card-stacked {
+  flex: 0 0 65%;
+  min-width: 700px;
+  flex-direction: column;
+  padding: 32px 32px;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+}
+
+.card-stacked-header {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto 8px auto;
+}
+
+.card-headline-large {
+  font-size: clamp(1.6rem, 2.5vw, 2rem); /* Matched exactly to first card */
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0 0 12px 0;
+}
+
+.purple-text {
+  color: #6B4DFF;
+}
+
+.card-paragraph-centered {
+  font-size: 1.05rem; /* Matched exactly to first card */
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.periodic-image-wrapper {
+  width: calc(100% + 64px);
+  margin-left: -32px;
+  margin-right: -32px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Clip the baked-in whitespace from the PNG */
+}
+
+.periodic-card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: -80px;
+  margin-bottom: -20px;
+  transform: scale(1.3);
+  transform-origin: center bottom;
+}
+
+.card-punchline-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background-color: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 450px;
+}
+
+.pill-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(107, 77, 255, 0.15);
+  color: #6B4DFF;
+  flex-shrink: 0;
+}
+
+.pill-icon svg {
+  width: 16px;
+  height: 16px;
+}

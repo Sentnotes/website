@@ -331,3 +331,33 @@
   0%   { transform: translate(0, 0) scale(1); }
   100% { transform: translate(-30vw, 30vh) scale(1.4); }
 }
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .activities-frames-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .activities-frames-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .activity-item {
+    flex: 0 0 85% !important;
+    scroll-snap-align: center;
+  }
+  
+  .activity-item.is-expanded {
+    flex: 0 0 100% !important;
+  }
+  
+  .stacked-dashboard-card {
+    padding: 1.5rem 1.5rem;
+    border-radius: 36px;
+  }
+}

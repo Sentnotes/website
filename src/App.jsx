@@ -5,6 +5,8 @@ import './App.css';
 
 import WalletSectionV3 from './components/WalletSectionV3';
 import AskAlisonSection from './components/AskAlisonSection';
+import FragmentedSection from './components/FragmentedSection';
+import BentoSignalsSection from './components/BentoSignalsSection';
 
 export const WALLETS = [
   {
@@ -156,37 +158,48 @@ function App() {
       {/* Ask Alison / Hero Intro Section */}
       <AskAlisonSection />
 
-      {/* Features / Wallets Section with SVG Animation */}
-      <section id="features">
-        <WalletSectionV3 wallets={WALLETS} />
-      </section>
+      {/* === Grey Background Zone — Sky ends here === */}
+      <div className="grey-zone">
 
-      {/* About Section */}
-      <section id="about">
-        <div className="section-header">
-          <h2 className="section-title">About SentNotes</h2>
-          <p className="section-subtitle">
-            Built for privacy, designed for clarity.
-          </p>
-        </div>
-        
-        <div className="about-content">
-          <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Seamless Sync</h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-            The SentNotes website is an extension of your mobile experience. 
-            Everything is securely synced, giving you access to your health data 
-            wherever you go, with the same gorgeous interface you love.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-            <button className="cta-button" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--text-primary)' }}>
-              Download iOS App
-            </button>
-            <button className="cta-button">
-              Sign In to Web
-            </button>
+        {/* Healthcare Is Fragmented Section */}
+        <FragmentedSection />
+
+        {/* Health Intelligence Bento Grid Section */}
+        <BentoSignalsSection />
+
+        {/* Features / Wallets Section with SVG Animation */}
+        <section id="features">
+          <WalletSectionV3 wallets={WALLETS} />
+        </section>
+
+        {/* About Section */}
+        <section id="about">
+          <div className="section-header">
+            <h2 className="section-title">About SentNotes</h2>
+            <p className="section-subtitle">
+              Built for privacy, designed for clarity.
+            </p>
           </div>
-        </div>
-      </section>
+          
+          <div className="about-content">
+            <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Seamless Sync</h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem' }}>
+              The SentNotes website is an extension of your mobile experience. 
+              Everything is securely synced, giving you access to your health data 
+              wherever you go, with the same gorgeous interface you love.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+              <button className="cta-button" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--text-primary)' }}>
+                Download iOS App
+              </button>
+              <button className="cta-button">
+                Sign In to Web
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }
