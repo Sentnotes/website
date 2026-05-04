@@ -4,8 +4,9 @@ import './index.css';
 import './App.css';
 
 import WalletSectionV3 from './components/WalletSectionV3';
+import AskAlisonSection from './components/AskAlisonSection';
 
-const WALLETS = [
+export const WALLETS = [
   {
     id: 'activities',
     title: 'Activities',
@@ -152,10 +153,14 @@ function App() {
 
       {/* Hero and Wallets are now merged into WalletSection for the scroll animation */}
 
+      {/* Ask Alison / Hero Intro Section */}
+      <AskAlisonSection />
+
       {/* Features / Wallets Section with SVG Animation */}
       <section id="features">
         <WalletSectionV3 wallets={WALLETS} />
       </section>
+
       {/* About Section */}
       <section id="about">
         <div className="section-header">

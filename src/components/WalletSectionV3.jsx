@@ -12,8 +12,7 @@ const CLOUDS_CONFIG = [
   { id: 6, image: '/clouds/7.png', top: '1%',  size: '450px', duration: '40s', delay: '52s', opacity: 0.75 },
   { id: 7, image: '/clouds/9.png', top: '18%', size: '500px', duration: '49s', delay: '70s', opacity: 0.85 },
 ];
-
-const EditableWalletCard = ({ title, cards, pocketColor = '#FCF9E2' }) => {
+export const EditableWalletCard = ({ title, cards, pocketColor = '#FCF9E2' }) => {
   const colors = ['#E20303', '#18024C', '#01B84E'];
   return (
     <svg width="100%" height="100%" viewBox="0 0 322 326" fill="none" style={{ overflow: 'visible', filter: 'drop-shadow(0 15px 30px rgba(0, 120, 255, 0.12))' }}>
@@ -55,7 +54,7 @@ const EditableWalletCard = ({ title, cards, pocketColor = '#FCF9E2' }) => {
   );
 };
 
-const AnimatedClouds = () => (
+export const AnimatedClouds = () => (
   <div style={{
     position: 'fixed', top: 0, left: 0,
     width: '100vw', height: '45vh',
@@ -113,6 +112,7 @@ const WalletSectionV3 = ({ wallets }) => {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const startRotation = useRef(0);
+  const sectionRef = useRef(null);
 
   const handlePointerDown = (e) => {
     isDragging.current = true;
@@ -160,8 +160,9 @@ const WalletSectionV3 = ({ wallets }) => {
   /* ── Scroll capture ── */
   useEffect(() => {
     const onScroll = () => {
-      const scrollY = window.scrollY;
-      const p = Math.max(0, Math.min(scrollY / TOTAL_VIRTUAL, 1));
+      const offsetTop = sectionRef.current ? sectionRef.current.offsetTop : 0;
+      const relativeScroll = window.scrollY - offsetTop;
+      const p = Math.max(0, Math.min(relativeScroll / TOTAL_VIRTUAL, 1));
       setProgress(p);
       
       if (p >= 1) {
@@ -204,18 +205,19 @@ const WalletSectionV3 = ({ wallets }) => {
   };
 
   return (
-    <>
+    <div ref={sectionRef}>
       <div
-        id="home"
         className="wallet-fullscreen"
         style={{
+          position: 'sticky',
+          top: 0,
           opacity: sectionOpacity,
           transition: released ? 'opacity 0.6s ease' : 'none',
           pointerEvents: released ? 'none' : 'auto',
           paddingTop: '80px', 
         }}
       >
-        <AnimatedClouds />
+
 
         {/* Hero text - Concept 3: Arc Dial */}
         <div
@@ -239,13 +241,11 @@ const WalletSectionV3 = ({ wallets }) => {
           onTouchStart={handlePointerDown}
           onTouchMove={handlePointerMove}
         >
-          {/* SentNotes Header */}
-          <div style={{ position: 'absolute', top: '15%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-            <h1 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 700 }}>SentNotes</h1>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginTop: '0.8rem' }}>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', margin: 0 }}>Your Daily Health Wallet</p>
-              <button style={{ pointerEvents: 'auto', padding: '10px 24px', backgroundColor: 'white', color: '#161616', borderRadius: '30px', border: 'none', fontSize: '0.95rem', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>Download app</button>
-            </div>
+          
+          {/* Features Header */}
+          <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+            <h2 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 700, letterSpacing: '-1px' }}>Features</h2>
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginTop: '10px' }}>Explore the interactive wallet.</p>
           </div>
 
           <div style={{
@@ -852,7 +852,7 @@ const WalletSectionV3 = ({ wallets }) => {
       </div>
       {/* Spacer so the rest of the page sits below the fixed overlay. */}
       <div style={{ height: `calc(${TOTAL_VIRTUAL}px + 100vh)` }} aria-hidden="true" />
-    </>
+    </div>
   );
 };
 
