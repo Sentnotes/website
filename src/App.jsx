@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, Moon, Heart, Droplets, Leaf } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import './App.css';
 
-import WalletSectionV3 from './components/WalletSectionV3';
 import AskAlisonSection from './components/AskAlisonSection';
 import FragmentedSection from './components/FragmentedSection';
-import BentoSignalsSection from './components/BentoSignalsSection';
+import TransitionSectionV2 from './components/TransitionSectionV2';
+import Footer from './components/Footer';
+import FeaturesPage from './pages/FeaturesPage';
 
 export const WALLETS = [
   {
@@ -61,146 +62,79 @@ export const WALLETS = [
   }
 ];
 
-// AnimatedClouds moved to WalletSection.jsx
+const Navigation = ({ scrolled }) => {
+  const location = useLocation();
+  const activeSection = location.pathname === '/features' ? 'features' : 'home';
+
+  return (
+    <nav className={`navbar ${scrolled ? 'glass' : ''}`}>
+      <div className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        SentNotes
+      </div>
+      <div className="nav-links">
+        <Link 
+          to="/"
+          className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
+          style={{ textDecoration: 'none' }}
+        >
+          Home
+        </Link>
+        <Link 
+          to="/features"
+          className={`nav-link ${activeSection === 'features' ? 'active' : ''}`}
+          style={{ textDecoration: 'none' }}
+        >
+          Features
+        </Link>
+      </div>
+    </nav>
+  );
+};
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Navbar background blur on scroll
       setScrolled(window.scrollY > 50);
-
-      // Scroll Spy Logic
-      const sections = ['home', 'features', 'about'];
-      let current = '';
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          // If the top of the section is near the top of the viewport
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            current = section;
-          }
-        }
-      }
-
-      if (current && current !== activeSection) {
-        setActiveSection(current);
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const cards = document.querySelectorAll('.wallet-card');
-    cards.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
   }, []);
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="app-container">
-      {/* Navigation */}
-      <nav className={`navbar ${scrolled ? 'glass' : ''}`}>
-        <div className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          SentNotes
-        </div>
-        <div className="nav-links">
-          <button 
-            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
-            onClick={() => scrollTo('home')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-          >
-            Home
-          </button>
-          <button 
-            className={`nav-link ${activeSection === 'features' ? 'active' : ''}`}
-            onClick={() => scrollTo('features')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-          >
-            Features
-          </button>
-          <button 
-            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-            onClick={() => scrollTo('about')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-          >
-            About
-          </button>
-        </div>
-      </nav>
+    <Router>
+      <div className="app-container">
+        {/* Navigation */}
+        <Navigation scrolled={scrolled} />
 
-      {/* Hero and Wallets are now merged into WalletSection for the scroll animation */}
+        <Routes>
+          {/* HOME PAGE */}
+          <Route path="/" element={
+            <>
+              {/* Hero Intro Section */}
+              <AskAlisonSection />
 
-      {/* Ask Alison / Hero Intro Section */}
-      <AskAlisonSection />
+              {/* The rest of the homepage gets the grey background */}
+              <div className="grey-zone">
+                {/* Healthcare Is Fragmented Section */}
+                <FragmentedSection />
 
-      {/* === Grey Background Zone — Sky ends here === */}
-      <div className="grey-zone">
+                {/* Transition Text Section (1 Centered Wallet on Rainbow) */}
+                <TransitionSectionV2 />
+              </div>
+            </>
+          } />
 
-        {/* Healthcare Is Fragmented Section */}
-        <FragmentedSection />
+          {/* FEATURES PAGE */}
+          <Route path="/features" element={<FeaturesPage />} />
+        </Routes>
 
-        {/* Health Intelligence Bento Grid Section */}
-        <BentoSignalsSection />
-
-        {/* Features / Wallets Section with SVG Animation */}
-        <section id="features">
-          <WalletSectionV3 wallets={WALLETS} />
-        </section>
-
-        {/* About Section */}
-        <section id="about">
-          <div className="section-header">
-            <h2 className="section-title">About SentNotes</h2>
-            <p className="section-subtitle">
-              Built for privacy, designed for clarity.
-            </p>
-          </div>
-          
-          <div className="about-content">
-            <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Seamless Sync</h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-              The SentNotes website is an extension of your mobile experience. 
-              Everything is securely synced, giving you access to your health data 
-              wherever you go, with the same gorgeous interface you love.
-            </p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-              <button className="cta-button" style={{ background: 'rgba(0,0,0,0.1)', color: 'var(--text-primary)' }}>
-                Download iOS App
-              </button>
-              <button className="cta-button">
-                Sign In to Web
-              </button>
-            </div>
-          </div>
-        </section>
-
+        {/* Global Footer (shows up on every page at the very bottom) */}
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 

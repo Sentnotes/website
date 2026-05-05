@@ -283,3 +283,21 @@
   width: 16px;
   height: 16px;
 }
+
+/* Card 3 - Full Image Card */
+.issue-image-card {
+  padding: 0;
+  overflow: hidden;
+  min-height: 440px;
+  flex: 0 0 65%;
+  min-width: 700px;
+}
+
+.issue-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  border-radius: 32px;
+  display: block;
+}

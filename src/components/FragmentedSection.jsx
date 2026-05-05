@@ -72,17 +72,13 @@ const FragmentedSection = () => {
           </div>
         </div>
 
-        {/* Card 3 - Light */}
-        <div className="fragmented-card light-card">
-          <h3 className="card-headline">
-            You’re the One Connecting Everything
-          </h3>
-          <p className="card-subtext" style={{ marginBottom: '32px' }}>
-            You repeat your history at every visit, try to remember what changed and when, and piece together insights no one else has time to track. You’ve been holding your health story together on your own.
-          </p>
-          <p className="card-punchline" style={{ color: '#111', marginTop: 'auto' }}>
-            You’ve been acting as your own health system. That’s not how it should work.
-          </p>
+        {/* Card 3 - Image Card */}
+        <div className="fragmented-card issue-image-card">
+          <img 
+            src="/web-assets/issue.png" 
+            alt="You're the one connecting everything" 
+            className="issue-card-image"
+          />
         </div>
 
       </div>

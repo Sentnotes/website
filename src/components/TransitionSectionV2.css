@@ -1,0 +1,113 @@
+.transition-section-v2 {
+  padding: 160px 0 0 0; /* Removed bottom padding so the content sits on the base */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden; /* Keeps the rainbow arcs inside */
+}
+
+.transition-container {
+  max-width: 900px;
+  width: 100%;
+  padding: 0 5%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.transition-tagline {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #111;
+  margin-bottom: 24px;
+}
+
+.transition-headline {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #111;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 32px 0;
+}
+
+.transition-subtext {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  color: #555;
+  line-height: 1.6;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.rainbow-arcs-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Let it take full height for a perfect circle */
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.8;
+  /* Fade out the top so it doesn't clash with text */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 25%, black 65%);
+  mask-image: linear-gradient(to bottom, transparent 25%, black 65%);
+}
+
+.single-wallet-wrapper {
+  margin-top: 120px; /* Push the wallet further down from the text */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Anchor to the bottom */
+  width: 100%;
+  position: relative;
+}
+
+.faded-iphone-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateX(250px); /* Push it out to the right side of the wallet */
+  bottom: -100px; /* Lower the phone so it doesn't block the text */
+  z-index: -1; /* Ensures it sits behind the massive wallet */
+  
+  opacity: 0.9;
+}
+
+/* Remove huge drop shadows so it looks flat against the background */
+.faded-iphone-wrapper .iphone-frame-wrapper {
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.faded-watch-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateX(-250px);
+  width: 280px; /* Adjust size of the watch image */
+  bottom: -40px; /* Adjust vertical positioning */
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+  opacity: 0.95;
+}
+
+
+
+.transition-wallet-icon {
+  width: 800px; /* Massively increased size */
+  max-width: 100vw;
+  height: auto;
+  display: block; /* Removes any tiny bottom gaps below images */
+  margin-bottom: -50px; /* Counteract any transparent padding inside the SVG to ensure it sits hard on the floor cut */
+  filter: drop-shadow(0 -10px 40px rgba(0,0,0,0.1)); /* Shift shadow up slightly since it sits on the floor */
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .transition-section-v2 {
+    padding: 100px 0 0 0;
+  }
+}
