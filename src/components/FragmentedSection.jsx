@@ -15,10 +15,10 @@ const FragmentedSection = () => {
           <div className="card-wide-content">
             <div className="card-text-side">
               <h3 className="card-headline">
-                Your health is scattered.
+                Your health is scattered
               </h3>
               <p className="card-subtext">
-                Your lab results live in one portal, your prescriptions in another, and your doctor only sees part of the picture. The rest lives in your memory — scattered across conversations, apps, and timelines that never quite connect.
+                Your lab results live in one place, prescriptions in another, and your doctor only sees part of the picture. The rest is left to memory — across conversations, apps, and moments that never quite connect.
               </p>
               <div className="punchline-wrapper">
                 <p className="card-punchline purple-punchline">
@@ -43,11 +43,11 @@ const FragmentedSection = () => {
         <div className="fragmented-card dark-card card-stacked">
           <div className="card-stacked-header">
             <h3 className="card-headline-large">
-              Care Happens in Moments.<br/>
-              Health Happens <span className="purple-text">Every Day.</span>
+              Care happens in moments.<br/>
+              Health happens <span className="purple-text">every day.</span>
             </h3>
             <p className="card-paragraph-centered">
-              Healthcare is built around brief appointments spaced months apart, where decisions are made with limited context. But your health doesn’t follow a schedule — it evolves daily, through small changes, recurring symptoms, and patterns that often go unnoticed.
+              Your body sends signals daily, but most care only captures moments.
             </p>
           </div>
           
@@ -70,15 +70,6 @@ const FragmentedSection = () => {
               The system checks in occasionally. <span className="purple-text">Your body doesn’t.</span>
             </p>
           </div>
-        </div>
-
-        {/* Card 3 - Image Card */}
-        <div className="fragmented-card issue-image-card">
-          <img 
-            src="/web-assets/issue.png" 
-            alt="You're the one connecting everything" 
-            className="issue-card-image"
-          />
         </div>
 
       </div>

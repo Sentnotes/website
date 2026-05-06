@@ -65,7 +65,10 @@ export const WALLETS = [
 
 const Navigation = ({ scrolled }) => {
   const location = useLocation();
-  const activeSection = location.pathname === '/features' ? 'features' : 'home';
+  
+  let activeSection = 'home';
+  if (location.pathname === '/features') activeSection = 'features';
+  if (location.pathname === '/about') activeSection = 'about';
 
   const isGlass = scrolled || activeSection === 'features';
 

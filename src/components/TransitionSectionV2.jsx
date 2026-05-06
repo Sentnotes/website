@@ -6,12 +6,11 @@ const TransitionSectionV2 = () => {
   return (
     <section className="transition-section-v2">
       <div className="transition-container">
-        <p className="transition-tagline">There should be a better way.</p>
         <h2 className="transition-headline">
-          You don’t have to hold it all together anymore.
+          Your health story, finally connected.
         </h2>
         <p className="transition-subtext">
-          SentNotes brings your entire health story into one continuous, intelligent system — so nothing gets lost, forgotten, or disconnected.
+          SentNotes brings your symptoms, medication, sleep, mood, and daily life into one connected story.
         </p>
       </div>
 
