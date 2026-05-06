@@ -8,6 +8,7 @@ import FragmentedSection from './components/FragmentedSection';
 import TransitionSectionV2 from './components/TransitionSectionV2';
 import Footer from './components/Footer';
 import FeaturesPage from './pages/FeaturesPage';
+import AboutPage from './pages/AboutPage';
 
 export const WALLETS = [
   {
@@ -66,8 +67,10 @@ const Navigation = ({ scrolled }) => {
   const location = useLocation();
   const activeSection = location.pathname === '/features' ? 'features' : 'home';
 
+  const isGlass = scrolled || activeSection === 'features';
+
   return (
-    <nav className={`navbar ${scrolled ? 'glass' : ''}`}>
+    <nav className={`navbar ${isGlass ? 'glass' : ''}`}>
       <div className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         SentNotes
       </div>
@@ -81,10 +84,17 @@ const Navigation = ({ scrolled }) => {
         </Link>
         <Link 
           to="/features"
-          className={`nav-link ${activeSection === 'features' ? 'active' : ''}`}
+          className={`nav-link ${activeSection === 'features' && !location.hash ? 'active' : ''}`}
           style={{ textDecoration: 'none' }}
         >
           Features
+        </Link>
+        <Link 
+          to="/about"
+          className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+          style={{ textDecoration: 'none' }}
+        >
+          About
         </Link>
       </div>
     </nav>
@@ -129,6 +139,9 @@ function App() {
 
           {/* FEATURES PAGE */}
           <Route path="/features" element={<FeaturesPage />} />
+
+          {/* ABOUT PAGE */}
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
 
         {/* Global Footer (shows up on every page at the very bottom) */}

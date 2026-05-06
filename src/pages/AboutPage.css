@@ -1,0 +1,228 @@
+.about-page {
+  background-color: #fbfbfd;
+  min-height: 100vh;
+  padding-top: var(--nav-height, 80px); /* Ensure it clears the fixed navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+.about-hero-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 80px 5% 40px;
+}
+
+.about-hero-content {
+  max-width: 1400px;
+  width: 100%;
+  position: relative;
+}
+
+.about-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+  margin-bottom: 60px;
+  max-width: 1000px;
+}
+
+.about-gallery-grid {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  position: relative;
+}
+
+.about-gallery-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0; /* Prevents flex blowout */
+}
+
+.about-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Matches Apple's typical photo aspect ratio */
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.about-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-image-wrapper:hover .about-hero-img {
+  transform: scale(1.03);
+}
+
+.about-caption {
+  padding: 0 16px;
+  max-width: 90%;
+}
+
+.about-caption p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #86868b;
+  margin: 0;
+}
+
+.about-caption strong {
+  color: #1d1d1f;
+  font-weight: 700;
+}
+
+/* Mission Section */
+.about-mission-section {
+  padding: 60px 5% 80px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.about-mission-content {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mission-headline {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin: 0 auto 30px;
+  text-align: center; /* Explicitly centered */
+}
+
+.mission-paragraph {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  color: #666;
+  text-align: center; /* Explicitly centered */
+  margin: 0 auto;
+}
+
+/* Narrative Flow Section */
+.about-flow-section {
+  padding: 80px 5% 160px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.about-flow-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Reduced huge gaps */
+}
+
+.flow-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.flow-item.centered {
+  text-align: center;
+}
+
+.flow-text-side {
+  max-width: 800px; /* Constrain width for readability when centered */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the flex children (eyebrow, title, desc) */
+  gap: 16px;
+  text-align: center; /* Explicitly centered */
+  margin: 0 auto; /* Ensure it stays in the middle */
+}
+
+.flow-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5A45FF;
+}
+
+.flow-title {
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #111;
+  margin: 0;
+}
+
+.flow-description {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.flow-image-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flow-image-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.flow-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Utilities for Boxes */
+.solid-light { background-color: #f5f5f7; }
+.dark-panel { background-color: #111; }
+.solid-accent { background-color: #5A45FF; }
+
+/* Responsive Updates */
+@media (max-width: 900px) {
+  .about-gallery-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-hero-title {
+    margin-bottom: 40px;
+  }
+
+  .flow-item,
+  .flow-item.reverse {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-flow-container {
+    gap: 80px;
+  }
+}

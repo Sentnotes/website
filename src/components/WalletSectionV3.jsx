@@ -199,7 +199,7 @@ const WalletSectionV3 = ({ wallets }) => {
       const y1 = ARC_RADIUS + ARC_RADIUS * Math.sin(rad);
       const x2 = ARC_RADIUS + (ARC_RADIUS - tickLength) * Math.cos(rad);
       const y2 = ARC_RADIUS + (ARC_RADIUS - tickLength) * Math.sin(rad);
-      ticks.push(<line key={`t-${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(255,255,255,0.4)" strokeWidth={isMajor ? 2 : 1.5} strokeLinecap="round" />);
+      ticks.push(<line key={`t-${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(0,0,0,0.3)" strokeWidth={isMajor ? 2 : 1.5} strokeLinecap="round" />);
     }
     return ticks;
   };
@@ -211,9 +211,7 @@ const WalletSectionV3 = ({ wallets }) => {
         style={{
           position: 'sticky',
           top: 0,
-          opacity: sectionOpacity,
-          transition: released ? 'opacity 0.6s ease' : 'none',
-          pointerEvents: released ? 'none' : 'auto',
+          pointerEvents: 'auto',
           paddingTop: '80px', 
         }}
       >
@@ -244,8 +242,8 @@ const WalletSectionV3 = ({ wallets }) => {
           
           {/* Features Header */}
           <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-            <h2 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 700, letterSpacing: '-1px' }}>Features</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginTop: '10px' }}>Explore the interactive wallet.</p>
+            <h2 style={{ color: '#111', fontSize: '3rem', margin: 0, fontWeight: 700, letterSpacing: '-1px' }}>Features</h2>
+            <p style={{ color: 'rgba(0,0,0,0.6)', fontSize: '1.2rem', marginTop: '10px' }}>Explore the interactive wallet.</p>
           </div>
 
           <div style={{
@@ -258,15 +256,15 @@ const WalletSectionV3 = ({ wallets }) => {
           }}>
             {/* Welcome text inside the arc centered */}
             <div style={{ position: 'absolute', top: '240px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', pointerEvents: 'none', zIndex: 1, width: '100%' }}>
-              <h1 style={{ color: 'white', fontSize: '3rem', margin: 0, fontWeight: 700 }}>Welcome back.</h1>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginTop: '0.5rem', marginBottom: 0 }}>What would you like to explore?</p>
+              <h1 style={{ color: '#111', fontSize: '3rem', margin: 0, fontWeight: 700 }}>Welcome back.</h1>
+              <p style={{ color: 'rgba(0,0,0,0.6)', fontSize: '1.2rem', marginTop: '0.5rem', marginBottom: 0 }}>What would you like to explore?</p>
             </div>
 
             {/* Dial Ticks SVG */}
             <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', pointerEvents: 'none' }}>
               <svg width={ARC_RADIUS * 2} height={ARC_RADIUS + 40}>
                 {renderDialTicks()}
-                <line x1={ARC_RADIUS} y1={ARC_RADIUS - 20} x2={ARC_RADIUS} y2={ARC_RADIUS + 20} stroke="white" strokeWidth="3" />
+                <line x1={ARC_RADIUS} y1={ARC_RADIUS - 20} x2={ARC_RADIUS} y2={ARC_RADIUS + 20} stroke="#111" strokeWidth="3" />
               </svg>
             </div>
 
