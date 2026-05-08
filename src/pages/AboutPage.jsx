@@ -63,50 +63,46 @@ const AboutPage = () => {
         <div className="staggered-grid-wrapper">
           <div className="staggered-grid-container">
             
+            {/* Custom 7-Column SentNotes Layout (12 Images) */}
+            
             {/* Col 1 */}
             <div className="staggered-col col-1">
-              <div className="staggered-item item-medium"></div>
-              <div className="staggered-item item-medium"></div>
+              <div className="staggered-item item-xtall" style={{ backgroundImage: "url('/web-assets/grid/pexels-47132679-7517195.jpg')" }}></div>
+              <div className="staggered-item item-small" style={{ backgroundImage: "url('/web-assets/grid/pexels-guillermo-berlin-1524368912-35908661.jpg')" }}></div>
             </div>
 
             {/* Col 2 */}
             <div className="staggered-col col-2">
-              <div className="staggered-item item-small"></div>
-              <div className="staggered-item item-small"></div>
-              <div className="staggered-item item-small"></div>
+              <div className="staggered-item item-medium" style={{ backgroundImage: "url('/web-assets/grid/pexels-callum-stegmann-2156884088-34445201.jpg')" }}></div>
+              <div className="staggered-item item-small" style={{ backgroundImage: "url('/web-assets/grid/pexels-anete-lusina-7269393.jpg')" }}></div>
             </div>
 
             {/* Col 3 */}
             <div className="staggered-col col-3">
-              <div className="staggered-item item-tall"></div>
+              <div className="staggered-item item-small" style={{ backgroundImage: "url('/web-assets/grid/pexels-igetpeoplefit-5276074.jpg')" }}></div>
+              <div className="staggered-item item-tall" style={{ backgroundImage: "url('/web-assets/grid/pexels-cottonbro-7579823.jpg')" }}></div>
             </div>
 
-            {/* Col 4 */}
+            {/* Col 4: The Centerpiece */}
             <div className="staggered-col col-4">
-              <div className="staggered-item item-xtall"></div>
+              <div className="staggered-item item-massive" style={{ backgroundImage: "url('/web-assets/grid/pexels-diego-silva-1019049-12191135.jpg')" }}></div>
             </div>
 
             {/* Col 5 */}
             <div className="staggered-col col-5">
-              <div className="staggered-item item-tall"></div>
+              <div className="staggered-item item-small" style={{ backgroundImage: "url('/web-assets/grid/pexels-ekaterina-bolovtsova-7358359.jpg')" }}></div>
+              <div className="staggered-item item-medium" style={{ backgroundImage: "url('/web-assets/grid/pexels-runffwpu-5961801.jpg')" }}></div>
             </div>
 
             {/* Col 6 */}
             <div className="staggered-col col-6">
-              <div className="staggered-item item-xtall"></div>
+              <div className="staggered-item item-medium" style={{ backgroundImage: "url('/web-assets/grid/pexels-thirdman-7659571.jpg')" }}></div>
+              <div className="staggered-item item-small" style={{ backgroundImage: "url('/web-assets/grid/pexels-toni-5051381.jpg')" }}></div>
             </div>
 
             {/* Col 7 */}
             <div className="staggered-col col-7">
-              <div className="staggered-item item-small"></div>
-              <div className="staggered-item item-small"></div>
-              <div className="staggered-item item-small"></div>
-            </div>
-
-            {/* Col 8 */}
-            <div className="staggered-col col-8">
-              <div className="staggered-item item-medium"></div>
-              <div className="staggered-item item-medium"></div>
+              <div className="staggered-item item-xtall" style={{ backgroundImage: "url('/web-assets/grid/pexels-timur-weber-9127750.jpg')" }}></div>
             </div>
 
           </div>
@@ -116,7 +112,7 @@ const AboutPage = () => {
       {/* More Than Tracking Section */}
       <section style={{ padding: '80px 20px', width: '100%', boxSizing: 'border-box', backgroundColor: '#fff' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#111', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 600, color: '#111', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             More than tracking
           </h2>
           <p style={{ fontSize: 'clamp(1.15rem, 2vw, 1.35rem)', lineHeight: 1.6, color: '#666', marginBottom: '24px', fontWeight: 600 }}>
@@ -137,7 +133,7 @@ const AboutPage = () => {
       {/* Clean Bottom Section */}
       <section style={{ padding: '60px 20px 120px', width: '100%', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#111', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 600, color: '#111', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             Your health is a continuous story.
           </h2>
           <p style={{ fontSize: 'clamp(1.15rem, 2vw, 1.35rem)', lineHeight: 1.6, color: '#666', margin: 0 }}>

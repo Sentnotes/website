@@ -21,7 +21,7 @@
 
 .about-hero-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: #1d1d1f;
   margin-bottom: 60px;
@@ -99,7 +99,7 @@
 
 .mission-headline {
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #111;
@@ -161,7 +161,7 @@
 
 .flow-title {
   font-size: clamp(2rem, 3.5vw, 2.5rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.5px;
   color: #111;
@@ -244,7 +244,7 @@
 
 .about-why-headline {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-weight: 600;
   color: #111;
   margin-bottom: 30px;
   letter-spacing: -0.02em;
@@ -276,8 +276,8 @@
   display: flex;
   gap: 16px;
   width: 100vw;
-  min-width: 1000px; /* Force minimum width to keep 8 columns looking good */
-  max-width: 1400px;
+  min-width: 800px; /* Reduced to prevent stretching */
+  max-width: 1100px; /* Scaled down from 1400px */
   justify-content: center;
   align-items: center;
   padding: 0 20px;
@@ -315,7 +315,8 @@
 .item-small { aspect-ratio: 1 / 1; }
 .item-medium { aspect-ratio: 3 / 4; }
 .item-tall { aspect-ratio: 1 / 2; }
-.item-xtall { aspect-ratio: 9 / 20; min-height: 350px; }
+.item-xtall { aspect-ratio: 9 / 20; min-height: 250px; }
+.item-massive { aspect-ratio: 4 / 5; min-height: 300px; }
 
 /* Responsive adjustments */
 @media (max-width: 1000px) {

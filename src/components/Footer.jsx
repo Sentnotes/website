@@ -19,22 +19,20 @@ const Footer = () => {
             <div className="footer-link-group">
               <h4>Product</h4>
               <Link to="/features">Features</Link>
-              <a href="#">Security</a>
               <a href="#">Updates</a>
             </div>
             
             <div className="footer-link-group">
               <h4>Company</h4>
-              <a href="#">About Us</a>
+              <Link to="/about">About Us</Link>
               <a href="#">Contact</a>
-              <a href="#">Careers</a>
+              <Link to="/careers">Careers</Link>
             </div>
 
             <div className="footer-link-group">
               <h4>Legal</h4>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cookie Policy</a>
+              <Link to="/privacy">Privacy Policy</Link>
+              <Link to="/terms">Terms of Service</Link>
             </div>
           </div>
         </div>
@@ -44,10 +42,18 @@ const Footer = () => {
             <h4>Ready to take control?</h4>
             <p>Download the iOS app today.</p>
           </div>
-          <button className="footer-download-btn">
-            <Download size={20} />
-            <span>Download for iOS</span>
-          </button>
+          <a 
+            href="https://apps.apple.com/hu/app/sentnotes/id6755358987" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="footer-download-btn-link"
+            style={{ textDecoration: 'none' }}
+          >
+            <button className="footer-download-btn">
+              <Download size={20} />
+              <span>Download for iOS</span>
+            </button>
+          </a>
         </div>
 
         <div className="footer-bottom">

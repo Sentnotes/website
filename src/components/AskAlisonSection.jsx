@@ -13,9 +13,16 @@ const AskAlisonSection = () => {
         <p className="ask-alison-subtitle" style={{ fontSize: 'clamp(1.1rem, 4vw, 1.25rem)', lineHeight: 1.5, maxWidth: '600px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
           From symptoms and medication to daily habits like sleep and activity — everything connects over time so you can understand what’s going on.
         </p>
-        <button style={{ marginTop: '10px', pointerEvents: 'auto', padding: '14px 36px', backgroundColor: 'white', color: '#161616', borderRadius: '30px', border: 'none', fontSize: '1.05rem', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 15px rgba(0,0,0,0.15)', transition: 'transform 0.2s ease' }}>
-          Download the app
-        </button>
+        <a 
+          href="https://apps.apple.com/hu/app/sentnotes/id6755358987" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
+          <button style={{ marginTop: '10px', pointerEvents: 'auto', padding: '14px 36px', backgroundColor: 'white', color: '#161616', borderRadius: '30px', border: 'none', fontSize: '1.05rem', fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 15px rgba(0,0,0,0.15)', transition: 'transform 0.2s ease' }}>
+            Download the app
+          </button>
+        </a>
       </div>
 
       <div className="iphone-frame-wrapper">

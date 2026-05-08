@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Lock } from 'lucide-react';
 import BentoSignalsSection from '../components/BentoSignalsSection';
-import FeaturesBentoGrid from '../components/FeaturesBentoGrid';
+import CategoryShowcase from '../components/CategoryShowcase';
 
 const CHAT_SEQUENCE = [
   { sender: 'alison', text: ["I noticed something that might be worth a closer look.", "Over the past two weeks, your fatigue levels have been gradually increasing. This change started shortly after your medication adjustment in early May."], delay: 2000 },
@@ -144,9 +145,48 @@ const FeaturesPage = () => {
       {/* Health Intelligence Bento Grid Section */}
       <BentoSignalsSection />
 
-      {/* Features Bento Grid Section */}
-      <section id="features" style={{ padding: 0 }}>
-        <FeaturesBentoGrid />
+      {/* Category Showcase Section */}
+      <CategoryShowcase />
+
+      {/* Privacy & Security Section */}
+      <section style={{ 
+        padding: '120px 5%', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        textAlign: 'center',
+        backgroundColor: '#fff' 
+      }}>
+        <Lock size={64} color="#1d1d1f" style={{ marginBottom: '32px' }} strokeWidth={2} />
+        <h2 style={{ 
+          fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+          fontWeight: '700', 
+          color: '#1d1d1f', 
+          lineHeight: '1.05', 
+          marginBottom: '32px', 
+          letterSpacing: '-0.03em' 
+        }}>
+          Your data is yours.<br/>And yours only.
+        </h2>
+        <p style={{ 
+          fontSize: '1.35rem', 
+          fontWeight: '600', 
+          color: '#1d1d1f', 
+          maxWidth: '800px', 
+          marginBottom: '24px', 
+          lineHeight: '1.4' 
+        }}>
+          All of our health features are built with privacy at the core and are designed to keep your data secure.
+        </p>
+        <p style={{ 
+          fontSize: '1.15rem', 
+          color: '#86868b', 
+          maxWidth: '800px', 
+          lineHeight: '1.6',
+          fontWeight: '500'
+        }}>
+          Your health information is protected using modern encryption, privacy-focused engineering, and carefully controlled access systems. Sensitive features are designed to help keep your personal data private, with certain biometric processing handled directly on your device for added security. We never sell your personal information to third parties.
+        </p>
       </section>
       
     </div>

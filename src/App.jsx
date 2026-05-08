@@ -9,6 +9,9 @@ import TransitionSectionV2 from './components/TransitionSectionV2';
 import Footer from './components/Footer';
 import FeaturesPage from './pages/FeaturesPage';
 import AboutPage from './pages/AboutPage';
+import CareersPage from './pages/CareersPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 export const WALLETS = [
   {
@@ -145,6 +148,15 @@ function App() {
 
           {/* ABOUT PAGE */}
           <Route path="/about" element={<AboutPage />} />
+
+          {/* CAREERS PAGE */}
+          <Route path="/careers" element={<CareersPage />} />
+
+          {/* TERMS PAGE */}
+          <Route path="/terms" element={<TermsPage />} />
+
+          {/* PRIVACY PAGE */}
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
 
         {/* Global Footer (shows up on every page at the very bottom) */}
