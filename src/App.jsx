@@ -69,6 +69,31 @@ export const WALLETS = [
 const Navigation = ({ scrolled }) => {
   const location = useLocation();
   
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        document.title = 'SentNotes — Your Connected Health Story';
+        break;
+      case '/features':
+        document.title = 'Features | Sentnotes';
+        break;
+      case '/about':
+        document.title = 'About | Sentnotes';
+        break;
+      case '/careers':
+        document.title = 'Careers | Sentnotes';
+        break;
+      case '/terms':
+        document.title = 'Terms | Sentnotes';
+        break;
+      case '/privacy':
+        document.title = 'Privacy | Sentnotes';
+        break;
+      default:
+        document.title = 'SentNotes — Your Connected Health Story';
+    }
+  }, [location]);
+
   let activeSection = 'home';
   if (location.pathname === '/features') activeSection = 'features';
   if (location.pathname === '/about') activeSection = 'about';
